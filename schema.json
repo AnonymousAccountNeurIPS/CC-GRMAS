@@ -1,0 +1,115 @@
+{
+  "NodeProperties": {
+    "Event": {
+      "event_title": {
+        "type": "STRING",
+        "example": "India Gate(?), Srinagar-Leh highway, Kashmir"
+      },
+      "submitted_date": {
+        "type": "STRING",
+        "example": "2014-04-01 00:00:00"
+      },
+      "location_accuracy": {
+        "type": "STRING",
+        "options": ["unknown", "50km", "5km", "10km", "25km", "1km", "100km", "exact", "250km"]
+      },
+      "latitude": {
+        "type": "FLOAT",
+        "min": 25.203,
+        "max": 36.3128
+      },
+      "event_date": {
+        "type": "STRING",
+        "example": "2010-04-20 00:00:00"
+      },
+      "event_description": {
+        "type": "STRING",
+        "example": "Sources said several landslides also occurred at d"
+      },
+      "location_description": {
+        "type": "STRING",
+        "example": "India Gate(?), Srinagar-Leh highway, Kashmir"
+      },
+      "longitude": {
+        "type": "FLOAT",
+        "min": 72.79989006000001,
+        "max": 91.3681
+      },
+      "fatality_count": {
+        "type": "INTEGER",
+        "min": 0,
+        "max": 5000
+      },
+      "injury_count": {
+        "type": "INTEGER",
+        "min": 0,
+        "max": 52
+      }
+    },
+    "GazetteerPoint": {
+      "gazetteer_closest_point": {
+        "type": "STRING",
+        "example": "Goma"
+      },
+      "admin_division_name": {
+        "type": "STRING",
+        "example": "Jammu and Kashmir"
+      },
+      "country_name": {
+        "type": "STRING",
+        "options": ["India", "Nepal", "Pakistan", "China", "Bhutan"]
+      }
+    },
+    "LandslideProfile": {
+      "profile_id": {
+        "type": "STRING",
+        "example": "landslide_downpour_medium_above_road"
+      },
+      "landslide_category": {
+        "type": "STRING",
+        "options": ["landslide", "mudslide", "debris_flow", "rock_fall", "complex", "other", "translational_slide", "snow_avalanche", "unknown", "riverbank_collapse"]
+      },
+      "landslide_setting": {
+        "type": "STRING",
+        "example": "above_road"
+      },
+      "landslide_trigger": {
+        "type": "STRING",
+        "example": "downpour"
+      },
+      "landslide_size": {
+        "type": "STRING",
+        "options": ["medium", "very_large", "large", "small", "unknown"]
+      }
+    },
+    "Source": {
+      "source_name": {
+        "type": "STRING",
+        "example": "Kashmir Observer"
+      },
+      "source_link": {
+        "type": "STRING",
+        "example": "http://www.kashmirobserver.net/index.php?option=co"
+      }
+    }
+  },
+  "RelationshipProperties": {
+    "relationships": [
+      {
+        "from": "Event",
+        "type": "LOCATED_NEAR",
+        "to": "GazetteerPoint"
+      },
+      {
+        "from": "Event",
+        "type": "HAS_PROFILE",
+        "to": "LandslideProfile"
+      },
+      {
+        "from": "Event",
+        "type": "SOURCED_FROM",
+        "to": "Source"
+      }
+    ]
+  }
+}
